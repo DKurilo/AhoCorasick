@@ -1,5 +1,5 @@
 name:            AhoCorasick
-version:         0.0.3
+version:         0.1.0
 license:         BSD3
 license-file:    LICENSE
 category:        Text
@@ -7,7 +7,7 @@ copyright:       Sergey S Lymar (c) 2012
 author:          Sergey S Lymar <sergey.lymar@gmail.com>
 maintainer:      Sergey S Lymar <sergey.lymar@gmail.com>
 stability:       experimental
-tested-with:     GHC == 7.0.3
+tested-with:     GHC == 8.6.5
 synopsis:        Aho-Corasick string matching algorithm
 cabal-version:   >= 1.8
 homepage:        http://github.com/lymar/AhoCorasick
@@ -29,7 +29,7 @@ library
     Text.AhoCorasick.Internal.Deque
 
   build-depends:
-    base == 4.*
+    base
     ,unordered-containers
     ,hashable
     ,array
