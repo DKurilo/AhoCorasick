@@ -82,23 +82,6 @@ import           Data.STRef                      (STRef, modifySTRef, newSTRef,
 import           Text.AhoCorasick.Internal.Deque (DQ, dqLength, mkDQ, popFront,
                                                   pushBack)
 
-data ExtKeySymb keySymb = Symb keySymb | ExtTest keySymb (keySymb -> Bool)
-
-getKeySymb :: ExtKeySymb keySymb -> keySymb
-getKeySymb (Symb keySymb)      = keySymb
-getKeySymb (ExtTest keySymb _) = keySymb
-
-instance (Eq keySymb) => Eq (ExtKeySymb keySymb) where
-    et1 == et2 = getKeySymb et1 == getKeySymb et2
-
-instance (Hashable keySymb) => Hashable (ExtKeySymb keySymb) where
-    hashWithSalt salt (Symb keySymb)      = hashWithSalt salt keySymb
-    hashWithSalt salt (ExtTest keySymb _) = hashWithSalt salt keySymb
-
-instance (Show keySymb) => Show (ExtKeySymb keySymb) where
-    show (Symb keySymb)      = "Symb" ++ show keySymb
-    show (ExtTest keySymb _) = "ExtTest" ++ show keySymb
-
 data TNode keySymb s =
     TNode {
           tnId        :: Int
